@@ -20,7 +20,8 @@ type Config struct {
 }
 
 func RunGPUTempCommand() string {
-	out, err := exec.Command("nvidia-smi", "--query-gpu=temperature.gpi", "--format=csv,noheader").Output()
+	out, err := exec.Command("nvidia-smi", "--query-gpu=temperature.gpu", "--format=csv,noheader").Output()
+	log.Println(string(out[:]))
 	if err != nil {
 		log.Fatal(err)
 	}
